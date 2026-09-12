@@ -110,7 +110,7 @@ st.markdown(
         animation: rainbow 4s infinite linear;
     }
     </style>
-    <h1 class="rainbow-text">Comparador de bolsas</h1>
+    <h1 class="rainbow-text">Buscador de bolsas</h1>
     """,
     unsafe_allow_html=True,
 )
@@ -179,7 +179,7 @@ st.markdown(
         animation: rainbow 4s infinite linear;
     }
     </style>
-    <h1 class="rainbow-text">Buscador de bolsas</h1>
+    <h1 class="rainbow-text">Comparador de bolsas</h1>
     """,
     unsafe_allow_html=True,
 )
