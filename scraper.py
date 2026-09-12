@@ -40,6 +40,36 @@ def buscar_livros():
     return dataframe
 
 
+# agora usando API
+
+
+@st.cache_data(ttl=86400)
+def buscar_bolsas(pesquisa):
+
+    chave_api = st.secrets["CHAVE_API"]
+
+    url = f"https://api.marketstack.com/v2/eod?access_key={chave_api}&symbols={pesquisa}&limit=30&sort=DESC"
+
+    requisicao = rqs.get(url)
+
+    if requisicao.status_code != 200:
+
+        return "Parece que essa bolsa não existe..."
+    else:
+
+        dados = requisicao.json()
+
+        tabela = pd.DataFrame(dados["data"])
+
+        acessar = tabela["close"]
+
+        eod = tabela["close"].iloc[0]
+
+        media = acessar.mean()
+
+        return tabela, media, eod
+
+
 if __name__ == "__main__":
-    resultado = buscar_livros()
+    resultado = buscar_livros(), buscar_bolsas()
     print(resultado)
