@@ -1,4 +1,5 @@
 # lógica do scraper vai aqui
+import os
 from bs4 import BeautifulSoup as bs
 import requests as rqs
 import pandas as pd
@@ -46,7 +47,7 @@ def buscar_livros():
 @st.cache_data(ttl=86400)
 def buscar_bolsas(pesquisa):
 
-    chave_api = st.secrets["CHAVE_API"]
+    chave_api = os.environ.get("CHAVE_API")
 
     url = f"https://api.marketstack.com/v2/eod?access_key={chave_api}&symbols={pesquisa}&limit=30&sort=DESC"
 
