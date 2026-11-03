@@ -62,7 +62,6 @@ Webscraping/
 ├── utils.py                  # Módulo de funções auxiliares
 │
 ├── requirements.txt          # Dependências do projeto
-├── .gitignore
 └── .gitattributes
 ```
 
